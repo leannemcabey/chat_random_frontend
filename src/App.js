@@ -1,25 +1,31 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import socketIOClient from "socket.io-client";
+import Signin from './components/signin'
+import Chat from './components/chat'
 
 class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      nickname: null,
+      // response: 'original value',
+      endpoint: "http://localhost:9000/",
+      socket: null
+    };
+  }
+
+  componentDidMount() {
+    this.setState({socket: socketIOClient(this.state.endpoint)})
+  }
+
+  updateUser = (nickname) => {
+    this.setState({nickname})
+  }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div>
+        {this.state.nickname ? <Chat socket={this.state.socket}/> : <Signin updateUser={this.updateUser}/>}
       </div>
     );
   }
