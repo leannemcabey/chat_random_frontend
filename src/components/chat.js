@@ -5,13 +5,13 @@ class Chat extends Component {
     super(props)
     this.state = {
       message: '',
-      messages: []
+      messageHistory: []
     }
   }
 
-  // componentDidMount() {
-  //   this.props.socket.on("chat message", data => this.setState({ response: data }))
-  // }
+  componentDidMount() {
+    this.props.socket.on("chat message", msg => this.setState({ messageHistory: [...this.state.messageHistory, msg]}))
+  }
 
   handleChange = (event) => {
     this.setState({message: event.target.value})
@@ -19,15 +19,15 @@ class Chat extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault()
-    this.setState({messages: [...this.state.messages, this.state.message]})
     this.props.socket.emit('chat message', this.state.message)
+    this.setState({message: ''})
   }
 
   render() {
     return (
       <div>
         <ul>
-          {this.state.messages.map(msg => <li>{msg}</li>)}
+          {this.state.messageHistory.map(msg => <li>{msg}</li>)}
         </ul>
         <form onSubmit={this.handleSubmit}>
           <input onChange={this.handleChange} type='text' value={this.state.message} />

@@ -1,21 +1,19 @@
 import React, { Component } from "react";
-import socketIOClient from "socket.io-client";
+import io from "socket.io-client";
 import Signin from './components/signin'
 import Chat from './components/chat'
 
 class App extends Component {
   constructor() {
-    super();
+    super()
     this.state = {
       nickname: null,
-      // response: 'original value',
-      endpoint: "http://localhost:9000/",
       socket: null
-    };
+    }
   }
 
   componentDidMount() {
-    this.setState({socket: socketIOClient(this.state.endpoint)})
+    this.setState({socket: io('http://localhost:9000/')})
   }
 
   updateUser = (nickname) => {
