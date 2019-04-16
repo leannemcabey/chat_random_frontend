@@ -7,23 +7,28 @@ class App extends Component {
   constructor() {
     super()
     this.state = {
+      socket: null,
       nickname: null,
-      socket: null
+      match: null
     }
   }
 
-  componentDidMount() {
-    this.setState({socket: io('http://localhost:9000/')})
-  }
+  componentDidMount() {}
 
   updateUser = (nickname) => {
     this.setState({nickname})
+    this.setState({socket: io('http://localhost:9000/')})
+  }
+
+  updateMatch = (match) => {
+    console.log('updating match')
+    this.setState({match})
   }
 
   render() {
     return (
       <div>
-        {this.state.nickname ? <Chat socket={this.state.socket}/> : <Signin updateUser={this.updateUser}/>}
+        {this.state.nickname ? <Chat updateMatch={this.updateMatch} socket={this.state.socket} match={this.state.match}/> : <Signin updateUser={this.updateUser}/>}
       </div>
     );
   }
