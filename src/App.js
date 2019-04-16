@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import io from "socket.io-client";
-import Signin from './components/signin'
-import Chat from './components/chat'
+import Signin from './components/Signin'
+import WaitingRoom from './components/WaitingRoom'
+import Chat from './components/Chat'
 
 class App extends Component {
   constructor() {
@@ -31,7 +32,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        {this.state.nickname ? <Chat updateMatch={this.updateMatch} unmatch={this.unmatch} socket={this.state.socket} match={this.state.match}/> : <Signin updateUser={this.updateUser}/>}
+        {this.state.match ? <Chat unmatch={this.unmatch} socket={this.state.socket} match={this.state.match}/> : this.state.nickname ? <WaitingRoom updateMatch={this.updateMatch} socket={this.state.socket} /> : <Signin updateUser={this.updateUser}/>}
       </div>
     );
   }

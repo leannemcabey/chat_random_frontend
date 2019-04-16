@@ -15,7 +15,6 @@ class Chat extends Component {
       })
     )
 
-    this.props.socket.on('match', () => this.props.updateMatch())
     this.props.socket.on('unmatch', () => this.props.unmatch())
   }
 
