@@ -9,7 +9,7 @@ class App extends Component {
     this.state = {
       socket: null,
       nickname: null,
-      match: null
+      match: false
     }
   }
 
@@ -20,15 +20,18 @@ class App extends Component {
     this.setState({socket: io('http://localhost:9000/')})
   }
 
-  updateMatch = (match) => {
-    console.log('updating match')
-    this.setState({match})
+  updateMatch = () => {
+    this.setState({match: true})
+  }
+
+  unmatch = () => {
+    this.setState({match: false})
   }
 
   render() {
     return (
       <div>
-        {this.state.nickname ? <Chat updateMatch={this.updateMatch} socket={this.state.socket} match={this.state.match}/> : <Signin updateUser={this.updateUser}/>}
+        {this.state.nickname ? <Chat updateMatch={this.updateMatch} unmatch={this.unmatch} socket={this.state.socket} match={this.state.match}/> : <Signin updateUser={this.updateUser}/>}
       </div>
     );
   }

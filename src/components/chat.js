@@ -10,20 +10,13 @@ class Chat extends Component {
   }
 
   componentDidMount() {
-    this.props.socket.on(
-      'chat message',
-      msg => this.setState({ messageHistory: [...this.state.messageHistory, msg]})
+    this.props.socket.on('chat message', msg => this.setState({
+        messageHistory: [...this.state.messageHistory, msg]
+      })
     )
 
-    // this.props.socket.on(
-    //   'match',
-    //   match => this.props.updateMatch(match)
-    // )
-
-    this.props.socket.on(
-      'match',
-      match => console.log('sup')
-    )
+    this.props.socket.on('match', () => this.props.updateMatch())
+    this.props.socket.on('unmatch', () => this.props.unmatch())
   }
 
   handleChange = (event) => {
