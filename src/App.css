@@ -1,33 +1,146 @@
-.App {
+#main-div {
+  font-family: 'Lato', sans-serif;
+  text-align: center;
+  background-color: rgb(238,240,241);
+  max-width: 1000px;
+  min-width: 1000px;
+  max-height: 750px;
+  min-height: 750px;
+  margin: auto;
+}
+
+header {
+  height: 50px;
+  text-align: left;
+  border-bottom: solid white 2px;
+  font-size: 18px;
+}
+
+header a {
+  text-decoration: none;
+  /* font-weight: bold; */
+  color: rgb(72,166,141);
+  position: relative;
+  top: 20px;
+  left: 5px;
+}
+
+#welcome {
+  margin-top: 0;
+  padding-top: 200px;
+}
+
+#nickname-form {
+  margin-top: 70px;
+}
+
+#nickname-form input {
+  width: 400px;
+  height: 40px;
+  font-size: 20px;
+  border-radius: 30px;
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+#nickname-form input:focus {
+  outline: none;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+#nickname-form button {
+  background-color: rgb(72,166,141);
+  height: 35px;
+  width: 100px;
+  margin-top: 10px;
+  font-size: 15px;
+  border-radius: 30px;
   color: white;
+  font-weight: bolder;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 3px 10px 0 rgba(0,0,0,0.19);
 }
 
-.App-link {
-  color: #61dafb;
+#nickname-form button:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#waiting-room-message {
+  padding-top: 100px;
+}
+
+#waiting-doggo {
+  margin-left: 50px;
+  height: 500px;
+  width: 700px;
+}
+
+#chat-wrapper {
+  padding-top: 90px;
+}
+
+#chat-box {
+  margin: auto;
+  max-width: 700px;
+  min-width: 700px;
+  max-height: 500px;
+  min-height: 500px;
+  background-color: white;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+  overflow: scroll;
+  border-radius: 25px;
+}
+
+#message-history {
+  display: grid;
+  grid-template-columns: 20% 80%;
+  /* grid-row-gap: 0px; */
+  text-align: left;
+  padding-top: 10px;
+  font-size: 18px;
+}
+
+.nickname {
+  color: rgb(72,166,141);
+  text-align: right;
+}
+
+.message-text {
+  width: 90%;
+  background-color: rgb(238,240,241);
+  border-radius: 25px;
+  padding: 10px;
+  margin: 7px auto auto 5px;
+}
+
+#chat-box form {
+  position: absolute;
+  top: 595px;
+}
+
+#chat-box form input {
+  height: 30px;
+  width: 630px;
+  font-size: 18px;
+  border-radius: 25px;
+  padding: 5px 10px 5px 10px;
+  margin-left: 5px;
+  background-color: rgb(217,244,237);
+  border: none;
+}
+
+#chat-box form input:focus {
+  outline: none;
+}
+
+#chat-box form button {
+  height: 35px;
+  width: 35px;
+  background-color: rgb(72,166,141);
+  color: white;
+  font-weight: bolder;
+  font-size: 15px;
+  border-radius: 25px;
+  margin-left: 5px;
+}
+
+#chat-box form button:hover {
+  background-color: rgb(225,41,66);
 }

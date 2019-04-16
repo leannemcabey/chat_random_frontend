@@ -30,15 +30,24 @@ class Chat extends Component {
 
   render() {
     return (
-      <div>
-        <ul>
-          {this.state.messageHistory.map(msg => <li>{msg}</li>)}
-        </ul>
-        <form onSubmit={this.handleSubmit}>
-          <input onChange={this.handleChange} type='text' value={this.state.message} />
-          <button type='submit'>Send</button>
-        </form>
-      </div>
+      <div id='chat-wrapper'>
+        <div id='chat-box'>
+          <div id='message-history'>
+            {this.state.messageHistory.map(msg => {
+              return (
+                <>
+                  <p className='nickname'>{msg.split(': ')[0].toUpperCase()}</p>
+                  <p className='message-text'>{msg.split(': ')[1]}</p>
+                </>
+              )
+            })}
+          </div>
+          <form onSubmit={this.handleSubmit}>
+            <input onChange={this.handleChange} type='text' value={this.state.message} placeholder='Start typing...'/>
+            <button type='submit'>&#10148;</button>
+          </form>
+        </div>
+    </div>
     )
   }
 }

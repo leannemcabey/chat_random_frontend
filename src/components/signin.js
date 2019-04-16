@@ -20,10 +20,12 @@ class Signin extends Component {
   render() {
     return (
       <div>
-        <h1>Enter your nickname below to chat!</h1>
-        <form onSubmit={this.handleSubmit}>
+        <h1 id='welcome'>Welcome to Chat Random!</h1>
+        <h3>Enter your nickname below to get matched with a random user and chat.</h3>
+      <form id='nickname-form' onSubmit={this.handleSubmit}>
           <input onChange={this.handleChange} type='text' value={this.state.nickname}/>
-        <button type='submit'>Let's Chat!</button>
+          <br />
+          <button type='submit'>Let's Chat!</button>
         </form>
       </div>
     )
