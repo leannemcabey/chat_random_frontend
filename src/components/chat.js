@@ -24,7 +24,7 @@ class Chat extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault()
-    this.props.socket.emit('chat message', this.state.message)
+    this.props.socket.emit('chat message', this.props.nickname + ': ' + this.state.message)
     this.setState({message: ''})
   }
 

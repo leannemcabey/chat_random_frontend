@@ -32,7 +32,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        {this.state.match ? <Chat unmatch={this.unmatch} socket={this.state.socket} match={this.state.match}/> : this.state.nickname ? <WaitingRoom updateMatch={this.updateMatch} socket={this.state.socket} /> : <Signin updateUser={this.updateUser}/>}
+        {this.state.match ? <Chat unmatch={this.unmatch} socket={this.state.socket} match={this.state.match} nickname={this.state.nickname}/> : this.state.nickname ? <WaitingRoom updateMatch={this.updateMatch} socket={this.state.socket} /> : <Signin updateUser={this.updateUser}/>}
       </div>
     );
   }
