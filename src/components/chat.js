@@ -5,17 +5,26 @@ class Chat extends Component {
     super(props)
     this.state = {
       message: '',
-      messageHistory: []
+      messageHistory: [],
+      messageHistoryDiv: null
     }
   }
 
   componentDidMount() {
+    this.setState({
+      messageHistoryDiv: document.getElementById('message-history')
+    })
+
     this.props.socket.on('chat message', msg => this.setState({
         messageHistory: [...this.state.messageHistory, msg]
       })
     )
 
     this.props.socket.on('unmatch', () => this.props.unmatch())
+  }
+
+  componentDidUpdate() {
+    this.state.messageHistoryDiv.scrollTop = this.state.messageHistoryDiv.scrollHeight
   }
 
   handleChange = (event) => {
@@ -29,9 +38,11 @@ class Chat extends Component {
   }
 
   render() {
+    console.log(this.state.messageHistoryDiv)
     return (
       <div id='chat-wrapper'>
         <div id='chat-box'>
+          <a href='http://localhost:3000/'><img src={require('../images/x-icon.svg')} /></a>
           <div id='message-history'>
             {this.state.messageHistory.map(msg => {
               return (
@@ -47,7 +58,12 @@ class Chat extends Component {
             <button type='submit'>&#10148;</button>
           </form>
         </div>
-    </div>
+        <div id='bored'>
+          <span>Bored? Type</span>
+          <span id='hop'>'/hop'</span>
+          <span>to find a new chat.</span>
+        </div>
+      </div>
     )
   }
 }

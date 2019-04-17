@@ -63,7 +63,7 @@ header a {
 }
 
 #waiting-room-message {
-  padding-top: 100px;
+  padding-top: 80px;
 }
 
 #waiting-doggo {
@@ -73,7 +73,7 @@ header a {
 }
 
 #chat-wrapper {
-  padding-top: 90px;
+  padding-top: 70px;
 }
 
 #chat-box {
@@ -84,17 +84,30 @@ header a {
   min-height: 500px;
   background-color: white;
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-  overflow: scroll;
   border-radius: 25px;
 }
 
+#chat-box img {
+  margin-right: 655px;
+  margin-top: 5px;
+  height: 30px;
+  width: 30px;
+  background-color: rgb(217,244,237);
+  border-radius: 25px;
+}
+
+#chat-box img:hover {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 3px 10px 0 rgba(0,0,0,0.19);
+}
+
 #message-history {
+  max-height: 400px;
   display: grid;
   grid-template-columns: 20% 80%;
-  /* grid-row-gap: 0px; */
   text-align: left;
   padding-top: 10px;
   font-size: 18px;
+  overflow: scroll;
 }
 
 .nickname {
@@ -112,12 +125,12 @@ header a {
 
 #chat-box form {
   position: absolute;
-  top: 595px;
+  top: 580px;
 }
 
 #chat-box form input {
   height: 30px;
-  width: 630px;
+  width: 625px;
   font-size: 18px;
   border-radius: 25px;
   padding: 5px 10px 5px 10px;
@@ -131,8 +144,8 @@ header a {
 }
 
 #chat-box form button {
-  height: 35px;
-  width: 35px;
+  height: 40px;
+  width: 40px;
   background-color: rgb(72,166,141);
   color: white;
   font-weight: bolder;
@@ -143,4 +156,19 @@ header a {
 
 #chat-box form button:hover {
   background-color: rgb(225,41,66);
+}
+
+#bored {
+  text-align: left;
+  margin-left: 160px;
+  margin-top: 15px;
+  font-size: 18px;
+  color: grey;
+  font-style: bold;
+}
+
+#hop {
+  margin-left: 5px;
+  margin-right: 5px;
+  color: rgb(72,166,141);
 }

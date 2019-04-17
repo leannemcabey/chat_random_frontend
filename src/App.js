@@ -32,7 +32,7 @@ class App extends Component {
     return (
       <div id='main-div'>
         <header>
-          <a href='http://localhost:3000/'>Chat Random <span role='img' aria-label='chat-emoji'>💬</span> </a>
+          <a href='http://localhost:3000/'>Chat Random <span role='img' aria-label='chat-emoji'>💬</span></a>
         </header>
         {this.state.match ? <Chat unmatch={this.unmatch} socket={this.state.socket} match={this.state.match} nickname={this.state.nickname}/> : this.state.nickname ? <WaitingRoom updateMatch={this.updateMatch} socket={this.state.socket} /> : <Signin updateUser={this.updateUser}/>}
       </div>
