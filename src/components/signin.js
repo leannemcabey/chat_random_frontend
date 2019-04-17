@@ -22,7 +22,7 @@ class Signin extends Component {
       <div>
         <h1 id='welcome'>Welcome to Chat Random!</h1>
         <h3>Enter your nickname below to get matched with a random user and chat.</h3>
-      <form id='nickname-form' onSubmit={this.handleSubmit}>
+        <form id='nickname-form' onSubmit={this.handleSubmit}>
           <input onChange={this.handleChange} type='text' value={this.state.nickname}/>
           <br />
           <button type='submit'>Let's Chat!</button>

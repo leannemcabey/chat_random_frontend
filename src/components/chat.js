@@ -38,7 +38,6 @@ class Chat extends Component {
   }
 
   render() {
-    console.log(this.state.messageHistoryDiv)
     return (
       <div id='chat-wrapper'>
         <div id='chat-box'>
